@@ -1,0 +1,55 @@
+<div class="main">
+  <form [formGroup]="employeeForm">
+    <div>
+        <label>First name</label>
+        <div> 
+      <input class="input" class="form-control" type="text" formControlName="firstName">
+     
+          <p  *ngIf= "employeeForm.get('firstName').errors?.required  && employeeForm.get('firstName').touched">
+              please enter valid first name
+            </p>
+      </div>
+    </div>
+    <div>
+        <label>Last name</label>
+        <div>
+      <input class="form-control" type="text" formControlName="lastName">
+          <p  *ngIf= "employeeForm.get('lastName').errors?.required  && employeeForm.get('lastName').touched">
+            please enter valid first name
+          </p>
+       </div>
+    </div>
+    <div>
+        <label>Department</label>
+        <div>
+      <input class="form-control" type="text" formControlName="department">
+          <p  *ngIf = "employeeForm.get('department').errors?.required  && employeeForm.get('department').touched">
+            please enter valid first name
+          </p>
+       </div>
+    </div>
+    <div>
+        <label>Gender</label>
+        <div>
+        <input class="gender" type="radio" value="male" formControlName="gender"><span>male</span>
+      <input class="gender" type="radio" value="female" formControlName="gender"><span>female</span>
+      <input class="gender" type="radio" value="others" formControlName="gender"><span>others</span>
+                <p  *ngIf = "employeeForm.get('gender').errors?.required  && employeeForm.get('gender').touched">
+            please enter valid first name
+          </p>
+       </div>
+    </div>
+    <div>
+      <label>Date of Birth</label>
+      <div>
+      <input  class="form-control" type="text" formControlName="dateOfBirth">
+  
+          <p  *ngIf = "employeeForm.get('DOB').errors?.required  && employeeForm.get('DOB').touched">
+            please enter valid first name
+          </p>
+       </div>
+    </div>
+
+    <button class = "btn btn-primary" type="button" [disabled]="employeeForm.invalid"  (click)="register()" >Submit</button>
+  </form>
+</div>
