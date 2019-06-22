@@ -8,6 +8,7 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms'
 import { RegisterationService } from './services/registeration.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DisplayService } from './services/display.service';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DisplayService } from './services/display.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DatePickerModule
   ],
   providers: [RegisterationService,
     DisplayService],

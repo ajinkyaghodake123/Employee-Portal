@@ -1,55 +1,69 @@
 <div class="main">
   <form [formGroup]="employeeForm">
     <div>
-        <label>First name</label>
-        <div> 
-      <input class="input" class="form-control" type="text" formControlName="firstName">
-     
-          <p  *ngIf= "employeeForm.get('firstName').errors?.required  && employeeForm.get('firstName').touched">
-              please enter valid first name
-            </p>
+      <h2 style="text-align: center" class="cent"> Resisteration Form</h2>
+    </div>
+    <div>
+      <label>First name</label>
+      <div>
+        <input class="input" placeholder="First name" class="form-control" type="text" formControlName="firstName">
+
+        <p class="alert alert-danger"
+          *ngIf="employeeForm.get('firstName').errors?.required  && employeeForm.get('firstName').touched">
+          please enter valid first name
+        </p>
       </div>
     </div>
     <div>
-        <label>Last name</label>
-        <div>
-      <input class="form-control" type="text" formControlName="lastName">
-          <p  *ngIf= "employeeForm.get('lastName').errors?.required  && employeeForm.get('lastName').touched">
-            please enter valid first name
-          </p>
-       </div>
+      <label>Last name</label>
+      <div>
+        <input class="form-control" placeholder="Last name" formControlName="lastName">
+        <p class="alert alert-danger"
+          *ngIf="employeeForm.get('lastName').errors?.required  && employeeForm.get('lastName').touched">
+          please enter valid last name
+        </p>
+      </div>
     </div>
     <div>
-        <label>Department</label>
-        <div>
-      <input class="form-control" type="text" formControlName="department">
-          <p  *ngIf = "employeeForm.get('department').errors?.required  && employeeForm.get('department').touched">
-            please enter valid first name
-          </p>
-       </div>
+      <label>Department</label>
+      <div>
+        <input class="form-control" placeholder="BFSI" formControlName="department">
+        <p class="alert alert-danger"
+          *ngIf="employeeForm.get('department').errors?.required  && employeeForm.get('department').touched">
+          please enter valid department name
+        </p>
+      </div>
     </div>
     <div>
-        <label>Gender</label>
-        <div>
+      <label>Gender</label>
+      <div>
         <input class="gender" type="radio" value="male" formControlName="gender"><span>male</span>
-      <input class="gender" type="radio" value="female" formControlName="gender"><span>female</span>
-      <input class="gender" type="radio" value="others" formControlName="gender"><span>others</span>
-                <p  *ngIf = "employeeForm.get('gender').errors?.required  && employeeForm.get('gender').touched">
-            please enter valid first name
-          </p>
-       </div>
+        <input class="gender" type="radio" value="female" formControlName="gender"><span>female</span>
+        <input class="gender" type="radio" value="others" formControlName="gender"><span>others</span>
+        <p class="alert alert-danger"
+          *ngIf="employeeForm.get('gender').errors?.required  && employeeForm.get('gender').touched">
+          please choose your gender
+        </p>
+      </div>
     </div>
     <div>
       <label>Date of Birth</label>
       <div>
-      <input  class="form-control" type="text" formControlName="dateOfBirth">
-  
-          <p  *ngIf = "employeeForm.get('DOB').errors?.required  && employeeForm.get('DOB').touched">
-            please enter valid first name
-          </p>
-       </div>
+        <input class="form-control" placeholder="dd-mm-yyyy" type="text" formControlName="dateOfBirth">
+
+        <p class="alert alert-danger"
+          *ngIf="employeeForm.get('DOB').errors?.required  && employeeForm.get('DOB').touched">
+          please enter valid date of birth
+        </p>
+      </div>
+      <ejs-datepicker id='datepicker' placeholder='Select a date' [value]= 'dateValue' format ='yyyy-MM-dd'></ejs-datepicker>
     </div>
 
-    <button class = "btn btn-primary" type="button" [disabled]="employeeForm.invalid"  (click)="register()" >Submit</button>
+    <div>
+      <br>
+      <button class="btn btn-primary" type="button" [disabled]="employeeForm.invalid"
+        (click)="register()">Submit</button>
+    </div>
+
   </form>
 </div>

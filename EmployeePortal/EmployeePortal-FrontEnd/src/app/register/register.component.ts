@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   employeeForm: FormGroup;
-
+  public dateValue: Date = new Date ("05/16/2017");
+  
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { RegisterModel } from '../models/register.model';
 
 @Injectable({
@@ -8,13 +8,20 @@ import { RegisterModel } from '../models/register.model';
 })
 export class RegisterationService {
 
+  private empDetailSubject = new BehaviorSubject<string>(null);
+
   constructor(private http: HttpClient) { }
 
-  public registerUser(RegisterModel): Observable<any> {
-    console.log("in service",RegisterModel)
+  public registerUser(regModel: RegisterModel): Observable<any> {
+    console.log("in service", RegisterModel)
+    this.empDetailSubject.next(regModel.firstName);
     return this.http.post<RegisterModel>(
       'http://localhost:8082/register',
-      RegisterModel
+      regModel
     );
+    
+  }
+  getEmployeeDetail() {
+    return this.empDetailSubject.asObservable();
   }
 }

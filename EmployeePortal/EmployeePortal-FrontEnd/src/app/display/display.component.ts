@@ -10,15 +10,20 @@ import { RegisterModel } from '../models/register.model';
 })
 export class DisplayComponent implements OnInit {
 
+  private employeeName : string
   constructor(
-    private displyService: DisplayService
-
+    private displyService: DisplayService,
+    private regService: RegisterationService,
+    
   ) { }
 
   ngOnInit() {
+    this.regService.getEmployeeDetail().subscribe(message => this.employeeName = message)
   }
   public showEmpList : boolean = false;
   public empModel : RegisterModel
+
+  
   showList() {
     this.displyService.showList().subscribe(
       (response) => {
@@ -27,5 +32,6 @@ export class DisplayComponent implements OnInit {
         this.showEmpList = true;
       }
     )
+    console.log ("name - "+ this.employeeName);
   }
 }

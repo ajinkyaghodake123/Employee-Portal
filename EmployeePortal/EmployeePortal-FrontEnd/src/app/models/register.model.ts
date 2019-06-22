@@ -1,6 +1,6 @@
 export class RegisterModel {
-    firstName: String;
-    lastName: String;
+    firstName: string;
+    lastName: string;
     department: string;
     gender: string;
     dateOfBirth: string;
