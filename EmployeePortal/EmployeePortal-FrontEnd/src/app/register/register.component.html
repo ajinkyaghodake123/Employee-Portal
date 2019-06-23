@@ -49,14 +49,13 @@
     <div>
       <label>Date of Birth</label>
       <div>
-        <input class="form-control" placeholder="dd-mm-yyyy" type="text" formControlName="dateOfBirth">
+        <input class="form-control" placeholder="dd-mm-yyyy" type="date" formControlName="dateOfBirth">
 
         <p class="alert alert-danger"
           *ngIf="employeeForm.get('DOB').errors?.required  && employeeForm.get('DOB').touched">
           please enter valid date of birth
         </p>
       </div>
-      <ejs-datepicker id='datepicker' placeholder='Select a date' [value]= 'dateValue' format ='yyyy-MM-dd'></ejs-datepicker>
     </div>
 
     <div>

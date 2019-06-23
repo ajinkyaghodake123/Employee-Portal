@@ -1,8 +1,10 @@
-<h3 *ngIf="employeeName"  style="text-align: center">hello {{employeeName}} </h3>
-<h4 style="text-align: center"> To see Employee list then please press the button</h4>
+<h3 *ngIf="employeeName && showFlag"  style="text-align: center">hello {{employeeName}} </h3>
+<h4 style="text-align: center" *ngIf="showFlag"> To see Employee list please press the button</h4>
+<h2 style="text-align: center" *ngIf="!showFlag"> Employee List</h2>
 <div class="item_align">
-    <button  type="button" (click)="showList()">Show Employee List</button>
-    <table class="table table-striped" width = "200" *ngIf = "showEmpList">
+    <button  type="button" style = "float:left" class="btn btn-primary" *ngIf="showFlag" (click)="showList()">Show Employee List</button>
+    <button  type="button" class="btn btn-primary" style="float:right" (click)="back()">Back to Register</button>
+    <table class="table table-striped" *ngIf = "showEmpList">
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
